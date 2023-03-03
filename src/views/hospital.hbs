@@ -1,0 +1,12 @@
+
+<div class="container border shadow bg-white h-75 pt-3 mt-5">
+    <h1 class="text-center my-4">Welcome Hospital {{hospital.name}}!</h1>
+    <div class="row">  
+        <div class="col-12 d-flex justify-content-end mt-4">
+            <a class="btn btn-success" href="/regDoctor/{{hospital._id}}">Doctor Register</a> 
+            <a class="ms-3 btn btn-secondary" href="/changePasword-hospital/{{hospital._id}}">Change password</a>
+            <a class="mx-3 btn btn-info text-white" href="/consultHospital/{{hospital._id}}">Consult Observations</a>
+            <a class="me-3 btn btn-danger" href="/">exit</a>
+        </div>
+    </div>
+</div>

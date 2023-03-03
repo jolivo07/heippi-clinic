@@ -1,0 +1,39 @@
+<div class="container border shadow p-3 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <a href="/doctor/{{doctor._id}}"><i class="fa-solid fa-arrow-left fs-5 text-dark"></i></a>
+            <h1 class="text-center my-3">Consult Observations</h1>
+        </div>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Name Patient</th>
+                        <th class="text-center" scope="col">Address</th>
+                        <th class="text-center" scope="col">Hospital</th>
+                        <th class="text-center" scope="col">Doctor</th>
+                        <th class="text-center" scope="col">Sate</th>
+                        <th class="text-center" scope="col">Description</th>
+                        <th class="text-center" scope="col">Services</th>
+                        <th class="text-center" scope="col">Created</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                        {{#each observations}}
+                        <tr>
+                            <td class="text-center">{{observationPatients.name}}</td>
+                            <td class="text-center">{{observationPatients.address}}</td>
+                            <td class="text-center">{{../hospital.name}}</td>
+                            <td class="text-center">{{../doctor.name}}</td>
+                            <td class="text-center">{{state}}</td>
+                            <td class="text-center">{{description}}</td>
+                            <td class="text-center">{{../hospital.services}}</td>
+                            <td class="text-center">{{dateFormat createdAt "DD/MM/Y"}}</td>
+                        </tr>
+                        {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

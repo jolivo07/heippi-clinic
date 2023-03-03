@@ -1,0 +1,41 @@
+<div class="container border shadow bg-white h-75 pt-3 mt-5">
+    <h1 class="text-center">Welcome Doctor {{doctor.name}}!</h1>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-end mt-5">
+            <a class="btn btn-info text-white" href="/consultDoctor/{{doctor._id}}">Consult Observations</a>
+            <a class="mx-3 btn btn-secondary" href="/changePasword-doctor/{{doctor._id}}">Change password</a> 
+            <a class="me-3 btn btn-danger " href="/">exit</a>
+
+        </div>
+    </div>
+    <div class="border-top my-4">
+        <table class="table  w-75 mx-auto ">
+            <h4 class="text-center pt-5">Patients</h4>
+
+            <thead>
+                <tr>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Address</th>
+                    <th class="text-center" scope="col">Birthdate</th>
+                    <th class="text-center" scope="col">Created</th>
+                    <th class="text-center" scope="col">Observation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each patients}}
+                <tr>
+                    <td class="text-center">
+                        {{name}}
+                    </td>
+                    <td class="text-center">{{address}}</td>
+                    <td class="text-center">{{dateFormat birthdate "DD/MM/Y"}}</td>
+                    <td class="text-center">{{dateFormat createdAt "DD/MM/Y"}}</td>
+                    <td class="text-center">
+                        <a class="btn btn-success w-50" href="/regObservation/{{../doctor._id}}/{{_id}}">Add</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

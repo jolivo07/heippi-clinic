@@ -1,0 +1,46 @@
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-12">
+            
+            <h1 class="text-center">Register your User</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container h-100 mt-5" id="hospital">
+    <div class="row w-75 mx-auto border p-3 bg-white shadow ">
+        <div class="col-12">
+            <a href="/"><i class="fa-solid fa-arrow-left fs-5 text-dark"></i></a>
+            <form action="/singUp-user" method="post" class="row g-3" id="user">
+                <div class="col-md-6 pt-3">
+                    <label class="form-label">Identification</label>
+                    <input type="text" class="form-control" name="identification" placeholder="123456789">
+                    <p class="text-danger">{{error}}</p>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" name="phone">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="example@exp.com">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="col-12">
+                    <select class="form-select" name="type">
+                        <option value="Hospital">Hospital</option>
+                        <option value="Patient">Patient</option>
+                    </select>
+                </div>
+                <div class="col-12 ">
+                    <button type="submit" class="btn btn-primary w-100">Sign in User</button>
+                    <p class="text-danger mt-2">{{errComplete}}</p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

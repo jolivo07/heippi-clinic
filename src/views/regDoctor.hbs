@@ -1,0 +1,39 @@
+<div class="container h-100 mt-5">
+    <div class="row w-100 border p-3 bg-white shadow">
+        <div>
+            <a href="/hospital/{{hospital.userID}}"><i class="fa-solid fa-arrow-left fs-5 text-dark"></i></a>
+            <h1 class="text-center text-decoration-underline pb-5">Register Doctor</h1>
+        </div>
+        <div class="col-12">
+            <form action="/singUp-doctor/{{hospital._id}}" method="post" class="row g-3">
+                <div class="col-6">
+                    <label class="form-label">Identification</label>
+                    <input type="text" class="form-control" name="identification">
+                    {{#if error}}
+                    <p class="text-danger">{{error}}</p>
+                    {{/if}}
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" name="phone">
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="example@exp.com">
+                </div>
+                <div class="col-6">
+                    <label class="form-label">password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100">Sign in Doctor</button>
+                </div>
+                <p class="text-danger">{{errorIncomplete}}</p>
+            </form>
+        </div>
+    </div>
+</div>
