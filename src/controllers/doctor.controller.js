@@ -20,6 +20,7 @@ export const renderRegDoctor = async(req, res)=>{
 export const signUpDoctor = async(req,res)=>{
     const user = await User.find().lean()
     const doctors = await Doctor.find().lean()
+    const hospital = await Hospital.findById(req.params.id).lean()
     let dc = {
         hospitalID: req.params.id,
         identification: req.body.identification,
@@ -29,19 +30,19 @@ export const signUpDoctor = async(req,res)=>{
         password: req.body.password
     }
     if (dc.identification == "" || dc.name == "" || dc.phone == "" || dc.email == "" || dc.password == "" ) {
-        let hospital = await Hospital.findById(req.params.id).lean()
+        
          res.render('regDoctor', {hospital, errorIncomplete: "You need to fill in all the fields"})
         return
     }
     for (let i = 0; i < doctors.length; i++) {
         if (doctors[i].identification === dc.identification) {
-            return  res.render('regDoctor', {hospitalID: req.params.id, error: "This ID is already used by a Doctor"})
+            return  res.render('regDoctor', {hospital, error: "This ID is already used by a Doctor"})
         }
     }
     
     for (let i = 0; i < user.length; i++) {
         if (user[i].identification === dc.identification) {
-            return  res.render('regDoctor', {hospitalID: req.params.id, error: "This ID is already used by a User"})
+            return  res.render('regDoctor', {hospital, error: "This ID is already used by a User"})
         }
     }
   
