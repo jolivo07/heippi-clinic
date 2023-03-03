@@ -25,9 +25,15 @@ export const singUpUser = async(req, res) =>{
     }
    
     if (user.length === 0) {
-        const us = User(req.body)
-        await us.save()
-        res.redirect('/')
+        if (identification === "" || password === "") {
+             res.render('signUp', {hospitalID: req.params.id, errComplete: "You need to fill in all the fields"})
+        }else{
+            const us = User(req.body)
+            await us.save()
+            res.redirect('/')
+            
+        }
+        return
     }
  
     if (user.length > 0) {
